@@ -28,17 +28,36 @@ class Style2BottomNavBar extends StatelessWidget {
               : item.inactiveBackgroundColor,
           borderRadius: const BorderRadius.all(Radius.circular(50)),
         ),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            IconTheme(
-              data: IconThemeData(
-                size: item.iconSize,
-                color: isSelected
-                    ? item.activeForegroundColor
-                    : item.inactiveForegroundColor,
-              ),
-              child: isSelected ? item.icon : item.inactiveIcon,
+        child: Column(
+          children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                IconTheme(
+                  data: IconThemeData(
+                    size: item.iconSize,
+                    color: isSelected
+                        ? item.activeForegroundColor
+                        : item.inactiveForegroundColor,
+                  ),
+                  child: isSelected ? item.icon : item.inactiveIcon,
+                ),
+                if (item.title != null && isSelected)
+                  Flexible(
+                    child: Padding(
+                      padding: const EdgeInsets.only(left: 8),
+                      child: Text(
+                        item.title!,
+                        softWrap: false,
+                        style: item.textStyle.apply(
+                          color: isSelected
+                              ? item.activeForegroundColor
+                              : item.inactiveForegroundColor,
+                        ),
+                      ),
+                    ),
+                  ),
+              ],
             ),
             if (item.title != null && isSelected)
               Flexible(
