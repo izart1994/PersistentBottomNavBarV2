@@ -46,17 +46,14 @@ class Style2BottomNavBar extends StatelessWidget {
             ),
           ),
           Flexible(
-            child: Padding(
-              padding: const EdgeInsets.only(left: 8),
-              child: Text(
-                item.title!,
-                softWrap: false,
-                style: item.textStyle.apply(
-                  fontWeightDelta: isSelected ? 2 : 1,
-                  color: isSelected
-                      ? const Color(0xFF2D365C)
-                      : item.inactiveForegroundColor,
-                ),
+            child: Text(
+              item.title!,
+              softWrap: false,
+              style: item.textStyle.apply(
+                fontWeightDelta: isSelected ? 2 : 1,
+                color: isSelected
+                    ? const Color(0xFF2D365C)
+                    : item.inactiveForegroundColor,
               ),
             ),
           ),
