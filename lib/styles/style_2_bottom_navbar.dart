@@ -17,20 +17,20 @@ class Style2BottomNavBar extends StatelessWidget {
   final ItemAnimation itemAnimationProperties;
 
   Widget _buildItem(ItemConfig item, bool isSelected, double deviceWidth) =>
-      AnimatedContainer(
-        width: isSelected ? deviceWidth * 0.29 : deviceWidth * 0.12,
-        duration: itemAnimationProperties.duration,
-        curve: itemAnimationProperties.curve,
-        padding: itemPadding,
-        decoration: BoxDecoration(
-          color: isSelected
-              ? item.activeBackgroundColor
-              : item.inactiveBackgroundColor,
-          borderRadius: const BorderRadius.all(Radius.circular(50)),
-        ),
-        child: Column(
-          children: [
-            Row(
+      Column(
+        children: [
+          AnimatedContainer(
+            width: isSelected ? deviceWidth * 0.29 : deviceWidth * 0.12,
+            duration: itemAnimationProperties.duration,
+            curve: itemAnimationProperties.curve,
+            padding: itemPadding,
+            decoration: BoxDecoration(
+              color: isSelected
+                  ? item.activeBackgroundColor
+                  : item.inactiveBackgroundColor,
+              borderRadius: const BorderRadius.all(Radius.circular(50)),
+            ),
+            child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 IconTheme(
@@ -42,40 +42,24 @@ class Style2BottomNavBar extends StatelessWidget {
                   ),
                   child: isSelected ? item.icon : item.inactiveIcon,
                 ),
-                if (item.title != null && isSelected)
-                  Flexible(
-                    child: Padding(
-                      padding: const EdgeInsets.only(left: 8),
-                      child: Text(
-                        item.title!,
-                        softWrap: false,
-                        style: item.textStyle.apply(
-                          color: isSelected
-                              ? item.activeForegroundColor
-                              : item.inactiveForegroundColor,
-                        ),
-                      ),
-                    ),
-                  ),
               ],
             ),
-            if (item.title != null && isSelected)
-              Flexible(
-                child: Padding(
-                  padding: const EdgeInsets.only(left: 8),
-                  child: Text(
-                    item.title!,
-                    softWrap: false,
-                    style: item.textStyle.apply(
-                      color: isSelected
-                          ? item.activeForegroundColor
-                          : item.inactiveForegroundColor,
-                    ),
-                  ),
+          ),
+          Flexible(
+            child: Padding(
+              padding: const EdgeInsets.only(left: 8),
+              child: Text(
+                item.title!,
+                softWrap: false,
+                style: item.textStyle.apply(
+                  color: isSelected
+                      ? item.activeForegroundColor
+                      : item.inactiveForegroundColor,
                 ),
               ),
-          ],
-        ),
+            ),
+          ),
+        ],
       );
 
   @override
