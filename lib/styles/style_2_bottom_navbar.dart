@@ -54,7 +54,7 @@ class Style2BottomNavBar extends StatelessWidget {
                 style: item.textStyle.apply(
                   fontWeightDelta: isSelected ? 2 : 1,
                   color: isSelected
-                      ? item.activeForegroundColor
+                      ? const Color(0xFF2D365C)
                       : item.inactiveForegroundColor,
                 ),
               ),
