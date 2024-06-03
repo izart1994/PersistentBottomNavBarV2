@@ -20,7 +20,7 @@ class Style2BottomNavBar extends StatelessWidget {
       Column(
         children: [
           AnimatedContainer(
-            width: isSelected ? deviceWidth * 0.25 : deviceWidth * 0.12,
+            width: isSelected ? deviceWidth * 0.20 : deviceWidth * 0.12,
             duration: itemAnimationProperties.duration,
             curve: itemAnimationProperties.curve,
             padding: itemPadding,
@@ -68,7 +68,7 @@ class Style2BottomNavBar extends StatelessWidget {
         decoration: navBarDecoration,
         filter: navBarConfig.selectedItem.filter,
         opacity: navBarConfig.selectedItem.opacity,
-        height: 60,
+        height: 63,
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: navBarConfig.items.map((item) {
