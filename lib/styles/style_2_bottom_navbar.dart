@@ -20,7 +20,7 @@ class Style2BottomNavBar extends StatelessWidget {
       Column(
         children: [
           AnimatedContainer(
-            width: isSelected ? deviceWidth * 0.20 : deviceWidth * 0.12,
+            width: isSelected ? deviceWidth * 0.18 : deviceWidth * 0.12,
             duration: itemAnimationProperties.duration,
             curve: itemAnimationProperties.curve,
             padding: itemPadding,
